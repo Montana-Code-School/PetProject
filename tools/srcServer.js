@@ -32,6 +32,9 @@ const Pet = require('../models/pet');
 const petRoutes = require('../routes/petRoutes');
 //End
 
+// Best not to expose all your React components here, only the files you want
+// to serve up without transpilation. You can move the index.html and style.css
+// to a folder (maybe 'public'), and express.static only those two files. - Harold
 app.use(express.static('src'));
 
 app.use(require('webpack-dev-middleware')(compiler, {

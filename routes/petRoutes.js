@@ -1,5 +1,6 @@
 import React from 'react';
 import webpack from 'webpack';
+// Best to be consistent and use import instead of require below - Harold
 const Pet = require ('../models/pet');
 let express = require('express');
 let router = express.Router();

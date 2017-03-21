@@ -1,4 +1,4 @@
-
+// since you are using babel-node on the server, you can use import - Harold
 let request = require('request');
 let cheerio = require('cheerio');
 let scraper = {};
@@ -25,7 +25,7 @@ scraper.scrapePetango = function(url, callback) {
 };
 
 //This function takes a response which is an HTML string
-//and returns and array of url strings.
+//and returns an array of url strings.
 scraper.parseAnimalListResponse = function(html) {
   let urlStrings = [];
   let $ = cheerio.load(html);

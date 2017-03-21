@@ -13,6 +13,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+      {/* Best to put this link once in your index.html - Harold */}
       <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
         <div className="container">
           <DisplayPets/>
