@@ -21,51 +21,52 @@ let Pet = require('../models/pet');
 //This is Baltazaar and he is in the database and in the scrape
 let baltazaar =
   { animalId: 34790773,
-  mainPhoto: '//media.petango.com/sms/photos/1095/11d1877d-8611-4f53-90db-0621d709b317.jpg',
-  name: 'Baltazaar',
-  species: 'Dog',
-  breed: 'Akita/Mix',
-  age: '1 year  1 month 16 days',
-  gender: 'Male',
-  size: 'Large',
-  color: 'Tan/Black',
-  spayNeuter: true,
-  declawed: 'No',
-  intakeDate: '2/5/2017',
-  description: 'Let me introduce myself, my name is Baltazaar.' };
+    mainPhoto: '//media.petango.com/sms/photos/1095/11d1877d-8611-4f53-90db-0621d709b317.jpg',
+    name: 'Baltazaar',
+    species: 'Dog',
+    breed: 'Akita/Mix',
+    age: '1 year  1 month 16 days',
+    gender: 'Male',
+    size: 'Large',
+    color: 'Tan/Black',
+    spayNeuter: true,
+    declawed: 'No',
+    intakeDate: '2/5/2017',
+    description: 'Let me introduce myself, my name is Baltazaar.' };
 
 //Loki only exists in the database not in the scrape
 let loki =
   { animalId: 34680077,
-   mainPhoto: '//media.petango.com/sms/photos/1095/ab3b6f68-dbc5-42c5-bd23-9d40922ec9c6.jpg',
-   name: 'Loki',
-   species: 'Dog',
-   breed: 'Shepherd/Chinese Shar-Pei',
-   age: '3 years  1 month 3 days',
-   gender: 'Male',
-   size: 'Large',
-   color: 'Red/Brown',
-   spayNeuter: true,
-   declawed: 'No',
-   intakeDate: '2/17/2017',
-   description: 'Woof'
- };
+    mainPhoto: '//media.petango.com/sms/photos/1095/ab3b6f68-dbc5-42c5-bd23-9d40922ec9c6.jpg',
+    name: 'Loki',
+    species: 'Dog',
+    breed: 'Shepherd/Chinese Shar-Pei',
+    age: '3 years  1 month 3 days',
+    gender: 'Male',
+    size: 'Large',
+    color: 'Red/Brown',
+    spayNeuter: true,
+    declawed: 'No',
+    intakeDate: '2/17/2017',
+    description: 'Woof',
+    adopted: false
+  };
 
 let loretta =
   { animalId: 33927386,
-  mainPhoto: '//media.petango.com/sms/photos/1095/16b208ca-e425-4994-9b8e-d9aab96d0ddf.jpg',
-  name: 'Loretta(Ariel)',
-  species: 'Dog',
-  breed: 'Great Pyrenees/Mix',
-  age: '2 years 4 months 15 days',
-  gender: 'Female',
-  size: 'Large',
-  color: 'White',
-  spayNeuter: false,
-  declawed: 'No',
-  intakeDate: '3/10/2017',
-  description: 'I am super cute'
-};
+    mainPhoto: '//media.petango.com/sms/photos/1095/16b208ca-e425-4994-9b8e-d9aab96d0ddf.jpg',
+    name: 'Loretta(Ariel)',
+    species: 'Dog',
+    breed: 'Great Pyrenees/Mix',
+    age: '2 years 4 months 15 days',
+    gender: 'Female',
+    size: 'Large',
+    color: 'White',
+    spayNeuter: false,
+    declawed: 'No',
+    intakeDate: '3/10/2017',
+    description: 'I am super cute'
+  };
 
 let scrapeArray = [baltazaar, loretta];
 

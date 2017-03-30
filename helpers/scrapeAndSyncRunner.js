@@ -12,12 +12,16 @@ mongoose.connect(mongooseUri, options);
 
 let scrapeRunner = require('./scrape');
 let syncRunner = require('./sync');
-
+//
 let url = "http://ws.petango.com/Webservices/adoptablesearch/" +
-  "wsAdoptableAnimals.aspx?species=Dog&sex=All&agegroup=All&colnum=" +
+  "wsAdoptableAnimals.aspx?sex=All&agegroup=All&colnum=" +
   "1&authkey=1t4v495156y98t2wd78317102f933h83or1340ptjm31spd04d";
 
-scrapeRunner.scrapePetango(url, function(arr) {
-  syncRunner.syncPets(arr);
-  console.log(arr);
-});
+setInterval(scrapeAndSync, 3600000);
+
+function scrapeAndSync() {
+  scrapeRunner.scrapePetango(url, function(arr) {
+    syncRunner.syncPets(arr);
+    console.log(arr);
+  });
+}

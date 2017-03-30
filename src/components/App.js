@@ -1,26 +1,21 @@
 import React from 'react';
+import Home from './Home';
+import Navigation from './Navigation';
 import DisplayPets from './DisplayPets';
-import { Col, Row } from 'react-materialize';
+import { Button, Col, Row, Thumbnail, Grid } from 'react-bootstrap';
 
-class App extends React.Component {
+export default class App extends React.Component {
 
   constructor() {
     super();
   }
 
-
-
   render() {
     return (
       <div>
-      {/* Best to put this link once in your index.html - Harold */}
-      <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
-        <div className="container">
-          <DisplayPets/>
-        </div>
+        <Navigation/>
+        {this.props.children}
       </div>
     );
   }
 }
-
-export default App;

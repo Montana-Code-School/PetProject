@@ -1,24 +1,26 @@
-// since you are using babel-node on the server, you can use import - Harold
-let request = require('request');
+'use strict';
+
+var request = require('request');
 // import request from 'request';
-let cheerio = require('cheerio');
+var cheerio = require('cheerio');
 // import cheerio from 'cheerio';
-let scraper = {};
+var scraper = {};
 
-
-scraper.scrapePetango = function(url, callback) {
+scraper.scrapePetango = function (url, callback) {
+  console.log("scrape petango");
   //Make a GET request
   request(url, function (error, response, body) {
+    console.log("scrape petango request");
     //Parse the response and return an array of Urls to the animals
-    let animalUrls = this.parseAnimalListResponse(body);
+    var animalUrls = this.parseAnimalListResponse(body);
     //Make a GET request to each individual url
-    let petArray = [];
-    for(let i = 0; i <animalUrls.length; i++) {
+    var petArray = [];
+    for (var i = 0; i < animalUrls.length; i++) {
       //make a GET request using animalUrls[i]
       request(animalUrls[i], function (error, response, body) {
         //Parse response to get a pet object
         petArray.push(this.parseIndividualAnimalResponse(body));
-        if(petArray.length === animalUrls.length){
+        if (petArray.length === animalUrls.length) {
           callback(petArray);
         }
       }.bind(this));
@@ -28,16 +30,15 @@ scraper.scrapePetango = function(url, callback) {
 
 //This function takes a response which is an HTML string
 //and returns an array of url strings.
-scraper.parseAnimalListResponse = function(html) {
-  let urlStrings = [];
-  let $ = cheerio.load(html);
+scraper.parseAnimalListResponse = function (html) {
+  var urlStrings = [];
+  var $ = cheerio.load(html);
   //jquery get href from a tag
-  let linkElements = $('.list-animal-name a');
-  linkElements.each(function(i, k) {
+  var linkElements = $('.list-animal-name a');
+  linkElements.each(function (i, k) {
     //put data in an array and concat the host name
-    if(k.attribs.href !== 'http://www.petango.com') {
-      urlStrings.push('http://ws.petango.com/Webservices/adoptablesearch/'
-                      + k.attribs.href);
+    if (k.attribs.href !== 'http://www.petango.com') {
+      urlStrings.push('http://ws.petango.com/Webservices/adoptablesearch/' + k.attribs.href);
     }
   });
   return urlStrings;
@@ -45,9 +46,9 @@ scraper.parseAnimalListResponse = function(html) {
 
 //This function takes the html from each individual pet and parses it into
 //a pet object and returns an object.
-scraper.parseIndividualAnimalResponse = function(html) {
-  let $ = cheerio.load(html);
-  let petObject = {};
+scraper.parseIndividualAnimalResponse = function (html) {
+  var $ = cheerio.load(html);
+  var petObject = {};
 
   petObject.animalId = parseInt($('#lblID').text());
   petObject.mainPhoto = $('#imgAnimalPhoto').attr('src');
@@ -58,7 +59,7 @@ scraper.parseIndividualAnimalResponse = function(html) {
   petObject.gender = $('#lbSex').text();
   petObject.size = $('#lblSize').text();
   petObject.color = $('#lblColor').text();
-  if($('#ImageAltered').attr('src') == 'images/GreenCheck.JPG') {
+  if ($('#ImageAltered').attr('src') == 'images/GreenCheck.JPG') {
     petObject.spayNeuter = true;
   } else {
     petObject.spayNeuter = false;
@@ -70,11 +71,5 @@ scraper.parseIndividualAnimalResponse = function(html) {
 
   return petObject;
 };
-
-
-
-
-
-
 
 module.exports = scraper;

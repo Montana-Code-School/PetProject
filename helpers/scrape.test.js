@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-let scrape = require('../../helpers/scrape');
+let scrape = require('./scrape');
 
 describe('Scrape', () => {
   //We need to figure out how to run callbacks and mock the data so that we can

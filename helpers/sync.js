@@ -9,10 +9,10 @@ sync.syncPets = function(arr) {
   let scrapedAnimalIds = arr.map(function(pet) {
     return pet.animalId;
   });
-  Pet.find({}, function (err, docs){
+  Pet.find({ adopted: false }, function (err, docs){
     for(let i = 0; i < docs.length; i ++) {
       if(scrapedAnimalIds.indexOf(docs[i].animalId) === -1) {
-        this.removeAdoptedPets(docs[i]);
+        this.adoptedTrue(docs[i]);
       }
     }
   }.bind(this));
@@ -35,10 +35,10 @@ sync.saveNewPets = function(pet) {
   });
 };
 
-sync.removeAdoptedPets = function(pet) {
-  console.log(pet.animalId)
-  Pet.remove({animalId: pet.animalId }, function(err) {
-    console.log(pet.name + " was adopted! :)")
+//look up a the pet object by id in the database and changes adopted to true
+sync.adoptedTrue = function(pet) {
+  Pet.update({_id: pet.id}, { $set: { adopted: true }}, function(err) {
+    console.log(pet.name + " was adopted! :)");
   });
 };
 

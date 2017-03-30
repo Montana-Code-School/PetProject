@@ -12,10 +12,11 @@ let PetSchema = new mongoose.Schema({
   gender: String,
   size: String,
   color: String,
-  spayNeuter: Boolean,
-  declawed: Boolean,
+  spayNeuter: String,
+  declawed: String,
   intakeDate: String,
-  description: String
+  description: String,
+  adopted: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model('Pet', PetSchema);

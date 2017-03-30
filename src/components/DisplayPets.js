@@ -1,13 +1,18 @@
 import React from 'react';
 import mongoose from 'mongoose';
-import { Button, Row, Col, Icon, Card, CardTitle, Navbar, Navitem } from 'react-materialize';
+import PopUpPet from './PopUpPet';
+import PetCard from './PetCard';
+import { Button, ButtonToolbar, Col, Row, Thumbnail, Grid } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../public/style.css';
 
 
 export default class DisplayPets extends React.Component {
   constructor() {
     super();
     this.state = {
-      petPics: []
+      petPics: [],
+      species: window.location.hash.split("species=")[1].split("&")[0]
     };
     this.loadPetsFromDb = this.loadPetsFromDb.bind(this);
   }
@@ -19,36 +24,37 @@ export default class DisplayPets extends React.Component {
   loadPetsFromDb() {
     fetch('/petsdata')
     .then(result => result.json())
-    .then(data => this.setState({
-      petPics: data}));
+    .then(data => this.setState({petPics: data}));
   }
-
+    //create a new array that is a filtered version of this.state.petPics
+    //example: if this.state.species === dog than the resulting array will only have dogs
+    //When creating the petPics array, map over filtered array instead of this.state.petPics
   render() {
-    let petPics = this.state.petPics.map(function(pet){
-      return(
-        <div key={pet.name} id={pet.animalId}>
-          <Card header={<CardTitle reveal image={pet.mainPhoto} waves="light"/>}
-            title={pet.name}
-            reveal={<p>{pet.description}</p>}>
-            <p><a href="#">This is a link</a></p>
-          </Card>
-        </div>
+    let catOrDogArray = this.state.petPics.filter(function(pet) {
+      return pet.species.toLowerCase() === this.state.species.toLowerCase();
+    }.bind(this));
 
-    );
+    let self = this;
+    let lgClose = () => this.setState({ lgShow: false });
+
+    let petPics = catOrDogArray.map(function(pet){
+      return(
+       <PetCard pet={pet} key={pet._id}/>
+      );
     });
 
     return (
-      <Row>
-        <Col lg={4}>
+      <div id="wrapper">
+        <div id="columns">
           {petPics}
-        </Col>
-      </Row>
+        </div>
+      </div>
     );
   }
 }
 
 DisplayPets.propTypes = {
-  petPics: React.PropTypes
+  petPics: React.PropTypes.func
 };
 
 //Basic Pet Display

@@ -1,0 +1,258 @@
+
+#mainDiv {
+  display: inline-grid;
+  background-color: #dbdbdb;
+  background-size: 100%;
+}
+
+.navbar-brand {
+  position: absolute;
+  /*overflow: hidden;*/
+  max-height: 200px;
+  max-width: 400px;
+  padding-top: 1vh;
+  padding-bottom: 0;
+}
+
+.Navbar {
+  position: fixed;
+  width: 100vw;
+  z-index: 20;
+  margin-top: 0px;
+  padding-top: 0px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.navButton {
+  background-color: white;
+  color: black;
+}
+
+.navButton:hover {
+  background-color: black;
+}
+
+Button:active {
+  background-color: white;
+}
+
+Button:focus {
+  background-color: white;
+}
+
+.navLinks {
+  margin-top: 1vh;
+}
+
+.container{
+  overflow: hidden;
+  background-size: cover;
+  width: 100%;
+  margin: 0%;
+  padding: 0%;
+}
+
+.header {
+  -webkit-transition: transform .5s ease-in-out;
+  background: url(/images/logo3.png) no-repeat, url(/images/dogsrunning2.jpg) no-repeat;
+  background-size: 23vw, cover;
+  background-position: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin-top: -20px;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  color: white;
+}
+
+.header img {
+  max-width: 100%;
+  -moz-transition: all 1.4s;
+  -webkit-transition: all 1.4s;
+  -webkit-transition: all .5s ease-in-out;
+}
+
+.header:hover {
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.words {
+  line-height: 70vh;
+}
+
+.homediv1 {
+  display:block;
+  margin: 3%;
+  overflow: hidden;
+  background-color: #f2f2f2;
+  font-family: 'Raleway', sans-serif;
+  box-shadow: 3px 4px 23px -1px rgba(0,0,0,0.48);
+  -webkit-transition: transform .5s ease-in-out;
+}
+
+.homediv1 img {
+  -moz-transition: all 1.4s;
+  -webkit-transition: all 1.4s;
+  -webkit-transition: all .5s ease-in-out;
+}
+
+.homediv1:hover img {
+  -moz-transform: scale(1.01);
+  -webkit-transform: scale(1.01);
+  transform: scale(1.01);
+}
+
+.homediv2 {
+  display:block;
+  margin: 3%;
+  background-color: #f2f2f2;
+  font-family: 'Raleway', sans-serif;
+  box-shadow: 3px 4px 23px -1px rgba(0,0,0,0.48);
+  -webkit-transition: transform .5s ease-in-out;
+}
+
+.homediv2 img {
+  -moz-transition: all 1.4s;
+  -webkit-transition: all 1.4s;
+  -webkit-transition: all .5s ease-in-out;
+}
+
+.homediv2:hover img {
+  -moz-transform: scale(1.01);
+  -webkit-transform: scale(1.01);
+  transform: scale(1.01);
+}
+
+.outterhomediv {
+}
+
+.homediv {
+  overflow: hidden;
+  margin-top: 70px;
+  background-color: #f2f2f2;
+  background-size: 100%;
+  font-family: 'Raleway', sans-serif;
+  box-shadow: 3px 4px 23px -1px rgba(0,0,0,0.48);
+  -webkit-transition: transform .5s ease-in-out;
+}
+
+.homediv img {
+  max-width: 99%;
+  max-height: 99%;
+  -moz-transition: all 1.4s;
+  -webkit-transition: all 1.4s;
+  -webkit-transition: all .5s ease-in-out;
+}
+
+.homediv:hover img {
+  -moz-transform: scale(1.01);
+  -webkit-transform: scale(1.01);
+  transform: scale(1.01);
+}
+
+/*.pet-div {
+  display: inline-grid;
+  width: 100vw;
+  height: 100vh;
+  background-color: #dbdbdb;
+  font-family: 'Raleway', sans-serif;
+}*/
+
+.thumbnail.pet-card {
+  box-shadow: 3px 4px 23px -1px rgba(0,0,0,0.48);
+  margin: 0 2px 15px;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+  padding: 15px;
+  padding-bottom: 5px;
+  width: 230px;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.pet-card {
+  background-color: #f2f2f2;
+}
+
+.thumbnail.pet-card img {
+  width: 100%;
+}
+
+#wrapper {
+	width: 1000px;
+	/*max-width: 1100px;
+	min-width: 800px;*/
+  padding-top: 100px;
+	margin: 0px auto;
+}
+
+#columns {
+	-webkit-column-count: 4;
+	/*-webkit-column-gap: 10px;*/
+	-webkit-column-fill: auto;
+	-moz-column-count: 4;
+	/*-moz-column-gap: 10px;*/
+	-moz-column-fill: auto;
+	column-count: 4;
+	/*column-gap: 15px;*/
+	column-fill: auto;
+};
+
+/*@media (max-width: 960px) {
+	#columns {
+		-webkit-column-count: 3;
+		-moz-column-count: 3;
+		column-count: 3;
+	}
+}*/
+
+@media (min-width: 960px) {
+	#columns {
+		-webkit-column-count: 3;
+		-moz-column-count: 3;
+		column-count: 3;
+	}
+
+}
+
+.yellow-button {
+  background-color: #F1B73F;
+  font-family: 'Raleway', sans-serif;
+}
+
+.blue-button {
+  background-color: #007187;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+ .sponsorship {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 100px;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+ }
+
+ .sponsorhead {
+  line-height: 60vh;
+  font-family: 'Raleway', sans-serif;
+ }
+
+#image-gallery-image {
+  max-width: 250px;
+  max-height: 250px;
+}
+
+#card-text {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: justify;
+}
