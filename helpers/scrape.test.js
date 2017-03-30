@@ -1,7 +1,10 @@
 import {expect} from 'chai';
-let scrape = require('./scrape');
+import scrape from './scrape';
 
 describe('Scrape', () => {
+  // Still not reading from a file.
+  // You can do some expects around the number of animals in the data etc,
+  // No need to do a full .to.eql comparison. - Harold
   //We need to figure out how to run callbacks and mock the data so that we can
   //run this test.
   xdescribe('scrapePetango', () => {

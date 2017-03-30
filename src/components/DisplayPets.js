@@ -12,6 +12,7 @@ export default class DisplayPets extends React.Component {
     super();
     this.state = {
       petPics: [],
+      // Not clear why the window.location below? - Harold
       species: window.location.hash.split("species=")[1].split("&")[0]
     };
     this.loadPetsFromDb = this.loadPetsFromDb.bind(this);

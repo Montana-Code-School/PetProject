@@ -1,10 +1,11 @@
-// since you are using babel-node on the server, you can use import - Harold
-let request = require('request');
-// import request from 'request';
-let cheerio = require('cheerio');
-// import cheerio from 'cheerio';
-let scraper = {};
+// seems to work using import. good to resolve any remaining issues.
+// Please only include the needed helper code now - not sure what is still being used
+// -Harold
 
+import request from 'request';
+import cheerio from 'cheerio';
+
+let scraper = {};
 
 scraper.scrapePetango = function(url, callback) {
   //Make a GET request
@@ -71,10 +72,4 @@ scraper.parseIndividualAnimalResponse = function(html) {
   return petObject;
 };
 
-
-
-
-
-
-
-module.exports = scraper;
+export default scraper;

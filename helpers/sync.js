@@ -1,7 +1,7 @@
 //You scrape petango and you get one pet object back.
 //You want to look that pet up in your database by animalId.
 
-// since you are using babel-node on the server, you can use import - Harold
+// Let's get import working (and ES6 export at bottom)- Harold
 let Pet = require('../models/pet');
 let sync = {};
 
