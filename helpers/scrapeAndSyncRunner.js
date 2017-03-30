@@ -1,3 +1,4 @@
+// since you are using babel-node on the server, you can use import - Harold
 let mongoose = require("mongoose");
 let uriUtil = require('mongodb-uri');
 mongoose.Promise = global.Promise;

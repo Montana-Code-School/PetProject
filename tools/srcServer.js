@@ -12,6 +12,8 @@ import User from '../models/user';
 import Pet from'../models/pet';
 import petRoutes from '../routes/petRoutes';
 import userRoutes from '../routes/userRoutes';
+import scrapeRunner from '../helpers/scrape';
+import syncRunner from '../helpers/sync';
 /* eslint-disable no-console */
 
 const port = process.env.PORT || 3000;
@@ -41,14 +43,13 @@ mongoose.connect(mongooseUri, options);
 const PROD = process.env.NODE_ENV === 'production';
 
 //Timed scrape and sync
-let scrapeRunner = require('../helpers/scrape');
-let syncRunner = require('../helpers/sync');
-//
+
+// Not too worried - but may look better to hide in an environment variable
 let url = "http://ws.petango.com/Webservices/adoptablesearch/" +
   "wsAdoptableAnimals.aspx?sex=All&agegroup=All&colnum=" +
   "1&authkey=1t4v495156y98t2wd78317102f933h83or1340ptjm31spd04d";
 //Call it when you npm start
-// scrapeAndSync();
+scrapeAndSync();
 //Call again every hour
 setInterval(scrapeAndSync, 3600000);
 

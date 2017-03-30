@@ -4,7 +4,7 @@ import hash from 'password-hash';
 import User from '../models/user';
 import jwt from 'jsonwebtoken';
 import configAuth from '../tools/configAuth';
-
+// Use import below - Harold
 let express = require('express');
 let userRoutes = express.Router();
 let app = express();
